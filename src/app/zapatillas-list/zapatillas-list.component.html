@@ -13,7 +13,7 @@
             <td><img [src]="zapatilla.imagen" [alt]="zapatilla.marca"></td>
             <td>{{zapatilla.marca}}</td>
             <td>{{zapatilla.modelo}} </td>
-            <td>{{zapatilla.precio}}</td>
+            <td>{{zapatilla.precio | currency}}</td>
             <td><span class="badge badge-pill badge-danger" *ngIf = "zapatilla.stock == 0">Sin stock</span></td>
         </tr>
     </tbody>
