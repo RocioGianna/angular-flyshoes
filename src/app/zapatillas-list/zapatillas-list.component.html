@@ -6,15 +6,20 @@
             <th>Modelo</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor= "let zapatilla of zapatillas" [ngClass]="{'oferta': zapatilla.oferta}">
-            <td><img [src]="zapatilla.imagen" [alt]="zapatilla.marca"></td>
+            <td><img width="50%" class="img-thumbnail" [src]="zapatilla.imagen" [alt]="zapatilla.marca"></td>
             <td>{{zapatilla.marca}}</td>
             <td>{{zapatilla.modelo}} </td>
             <td>{{zapatilla.precio | currency}}</td>
             <td><span class="badge badge-pill badge-danger" *ngIf = "zapatilla.stock == 0">Sin stock</span></td>
+            <td>
+                <button class="btn btn-secondary btn-sm" (click)="menosCant(zapatilla)">-</button>
+                <input type="text" [(ngModel)]="zapatilla.cantidad" (Keyup)="changeCantidad($event, zapatilla)">
+                <button class="btn btn-secondary btn-sm"(click)="masCant(zapatilla)">+</button></td>
         </tr>
     </tbody>
 </table>

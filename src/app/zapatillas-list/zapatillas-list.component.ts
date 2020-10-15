@@ -15,6 +15,7 @@ export class ZapatillasListComponent implements OnInit {
     "stock":15,
     "imagen": "assets/img/shoes1.jpg",
     "oferta": true,
+    "cantidad": 0,
     },
     {
       "marca" : "Adidas",
@@ -23,6 +24,7 @@ export class ZapatillasListComponent implements OnInit {
       "stock":1,
       "imagen": "assets/img/shoes1.jpg",
       "oferta": false,
+      "cantidad": 0,
      },
      {
       "marca" : "Reebook",
@@ -31,11 +33,24 @@ export class ZapatillasListComponent implements OnInit {
       "stock":0,
       "imagen": "assets/img/shoes1.jpg",
       "oferta": false,
+      "cantidad": 0,
      },
 ];
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  menosCant(zapatilla: zapatilla): void{
+    if (zapatilla.cantidad > 0){
+      zapatilla.cantidad--;
+    }
+  }
+  masCant(zapatilla: zapatilla): void{
+    if(zapatilla.cantidad < zapatilla.stock){
+      zapatilla.cantidad++;
+    }
+  }
+  changeCantidad(event, zapatilla : zapatilla): void {
+    console.log(event.key);
+  }
 }

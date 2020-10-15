@@ -5,4 +5,5 @@ export interface zapatilla{
     stock: number;
     imagen: String;
     oferta: boolean;
+    cantidad: number;
 }
