@@ -10,7 +10,7 @@ export class ZapatillasListComponent implements OnInit {
   zapatillas: zapatilla []  = [
     {
     "marca" : "Nike",
-    "modelo" : "Runnig", 
+    "modelo" : "Air Max", 
     "precio" : 5000,
     "stock":15,
     "imagen": "assets/img/shoes1.jpg",
@@ -19,19 +19,19 @@ export class ZapatillasListComponent implements OnInit {
     },
     {
       "marca" : "Adidas",
-      "modelo" : "Air Max", 
+      "modelo" : "Superstar", 
       "precio" : 4500,
       "stock":1,
-      "imagen": "assets/img/shoes1.jpg",
+      "imagen": "assets/img/shoes2.jpg",
       "oferta": false,
       "cantidad": 0,
      },
      {
       "marca" : "Reebook",
-      "modelo" : "Sport", 
+      "modelo" : "Princess", 
       "precio" : 8000,
       "stock":0,
-      "imagen": "assets/img/shoes1.jpg",
+      "imagen": "assets/img/shoes3.jpg",
       "oferta": false,
       "cantidad": 0,
      },
@@ -51,6 +51,13 @@ export class ZapatillasListComponent implements OnInit {
     }
   }
   changeCantidad(event, zapatilla : zapatilla): void {
-    console.log(event.key);
+    if (event.target.value < 0){
+      event.target.value = event.target.value * (-1);
+      zapatilla.cantidad = event.target.value;
+    }
+    if (event.target.value > zapatilla.stock){
+      zapatilla.cantidad = zapatilla.stock;
+    }
+
   }
 }
