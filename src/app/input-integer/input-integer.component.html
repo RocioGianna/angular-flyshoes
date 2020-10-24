@@ -1,0 +1,12 @@
+<div class="input-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <button class="btn btn-primary btn-sm" (click)="menosCant(zapatilla)">-</button>
+        </div>
+        <input type="number" [(ngModel)]="zapatilla.cantidad" (keyup)="changeCantidad($event, zapatilla)">
+        <div class="input-group-append">
+            <button class="btn btn-primary btn-sm"(click)="masCant(zapatilla)">+</button>
+        </div>
+    </div>
+</div>
+

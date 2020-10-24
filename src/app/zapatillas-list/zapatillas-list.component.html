@@ -2,7 +2,7 @@
 <table class="table text-center">
     <thead>
         <tr>
-            <th>Imagen</th>
+            <th></th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Precio</th>
@@ -12,15 +12,14 @@
     </thead>
     <tbody>
         <tr *ngFor= "let zapatilla of zapatillas" [ngClass]="{'oferta': zapatilla.oferta}">
-            <td><img width="50%" class="img-thumbnail" [src]="zapatilla.imagen" [alt]="zapatilla.marca"></td>
+            <td><img width="40%" class="img-thumbnail" [src]="zapatilla.imagen" [alt]="zapatilla.marca"></td>
             <td>{{zapatilla.marca}}</td>
             <td>{{zapatilla.modelo}} </td>
             <td>{{zapatilla.precio | currency}}</td>
             <td><span class="badge badge-pill badge-danger" *ngIf = "zapatilla.stock == 0">Sin stock</span></td>
             <td>
-                <button class="btn btn-secondary btn-sm" (click)="menosCant(zapatilla)">-</button>
-                <input type="number" [(ngModel)]="zapatilla.cantidad" (keyup)="changeCantidad($event, zapatilla)">
-                <button class="btn btn-secondary btn-sm"(click)="masCant(zapatilla)">+</button></td>
+               <app-input-integer [zapatilla]="zapatilla" *ngIf="zapatilla.stock"></app-input-integer>
+            </td>
         </tr>
     </tbody>
 </table>
