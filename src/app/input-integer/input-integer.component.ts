@@ -41,5 +41,8 @@ export class InputIntegerComponent implements OnInit {
       event.target.value = event.target.value * (-1);
      this.cantidad = event.target.value;
     } //cambia el numero a valor positivo 
+    if(event.target.value > this.max){
+      this.cantidad = this.max;
+    } //evita que la cantidad ingresada supere el limite del stock
   }
 }
