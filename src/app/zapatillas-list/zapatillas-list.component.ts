@@ -40,5 +40,7 @@ export class ZapatillasListComponent implements OnInit {
 
   ngOnInit(): void {
   }
- 
+  maxReached(m: string){
+    alert(m);
+  }
 }

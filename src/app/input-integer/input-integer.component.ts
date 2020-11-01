@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {zapatilla} from '../zapatillas-list/zapatilla';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-integer',
@@ -9,29 +10,36 @@ import {zapatilla} from '../zapatillas-list/zapatilla';
 export class InputIntegerComponent implements OnInit {
 
   constructor() { }
-@Input()
-  zapatilla : zapatilla;
-  
+  @Input()
+  cantidad : number;
+  @Input()
+  max: number;
+  @Output()
+  cantidadChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output()
+  maxReached: EventEmitter<string> = new EventEmitter<string>();
+
   ngOnInit(): void {
   }
-  menosCant(zapatilla: zapatilla): void{
-    if (zapatilla.cantidad > 0){
-      zapatilla.cantidad--;
+ 
+  menosCant(): void{
+    if (this.cantidad > 0){
+      this.cantidad--;
+      this.cantidadChange.emit(this.cantidad);
     }
   }
-  masCant(zapatilla: zapatilla): void{
-    if(zapatilla.cantidad < zapatilla.stock){
-      zapatilla.cantidad++;
+  masCant(): void{
+    if(this.cantidad < this.max){
+      this.cantidad++;
+      this.cantidadChange.emit(this.cantidad);
+    }else{
+      this.maxReached.emit("Se alcanzo el limite de stock");
     }
   }
-  changeCantidad(event, zapatilla : zapatilla): void {
+  changeCantidad(event): void {
     if (event.target.value < 0){
       event.target.value = event.target.value * (-1);
-      zapatilla.cantidad = event.target.value;
-    }
-    if (event.target.value > zapatilla.stock){
-      zapatilla.cantidad = zapatilla.stock;
-    }
-
+     this.cantidad = event.target.value;
+    } //cambia el numero a valor positivo 
   }
 }
