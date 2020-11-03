@@ -1,0 +1,12 @@
+#productos{
+    text-align: center;
+}
+#productos img{
+    border-radius: 5px;
+    height: 170px;
+    width: 270px;
+}
+#productos img:hover{
+    transform: scale(1.02);
+    opacity: 0.8;
+}

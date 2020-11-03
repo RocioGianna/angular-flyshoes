@@ -11,7 +11,8 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { FlyshoesShoesComponent } from './flyshoes-shoes/flyshoes-shoes.component';
-import { InputIntegerComponent } from './input-integer/input-integer.component'
+import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HomeComponent } from './home/home.component'
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component'
     CartComponent,
     AboutComponent,
     FlyshoesShoesComponent,
-    InputIntegerComponent
+    InputIntegerComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

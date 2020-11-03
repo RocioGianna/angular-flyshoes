@@ -6,7 +6,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link"[routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link"[routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"[routerLink]="['/zapatillas']">Productos<span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/about']">Contacto</a>
@@ -18,5 +21,23 @@
     <router-outlet></router-outlet>
   </div>
   <footer class="fixed-bottom">
-    <h4>flyshoes 2020</h4>
+    © 2020  Todos los derechos reservados
+    <div class="row">
+      <ul class="col-md-4" class="lista1">
+          <li class="foot-title">Ayuda</li><br>
+          <li><a href="#">Entregas</a></li>
+          <li><a href="#">Cambios</a></li>
+          <li><a href="#">Pagos</a></li>
+      </ul>
+      <ul class="col-md-4" class="lista2">
+          <li class="foot-title">Politicas</li> <br>
+          <li><a href="#">Politica de envio gratis</a></li>
+      </ul>
+      <ul class="col-md-4" class="lista3">
+          <li class="foot-title">Institucional</li><br>
+          <li><a href="#">¿Quienes somos?</a></li>
+          <li><a href="#">Terminos y condiciones</a></li>
+          <li><a href="#">Ventajas Fly Shoes</a></li>
+      </ul>
+  </div>
   </footer>

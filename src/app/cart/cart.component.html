@@ -1,13 +1,8 @@
 <h3>Carrito de compras</h3>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Compra</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td></td>
-        </tr>
-    </tbody>
+    <ul>
+        <li *ngFor= "let zapatilla of carrito$ | async">
+            {{zapatilla.marca}}: {{zapatilla.cantidad}}
+        </li>
+    </ul>
 </table>
